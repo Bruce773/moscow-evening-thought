@@ -1,0 +1,467 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f1e7cd;
+  --paper-dim: #c7b997;
+  --gold: #d0ac63;
+  --gold-bright: #e8c77e;
+  --ink: #071a31;
+  --line: rgba(220, 183, 105, 0.52);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #06172d;
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--ink);
+  background-image: url("/bg.png");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+.ambient-overlay {
+  background:
+    linear-gradient(180deg, rgba(3, 14, 30, 0.28), rgba(3, 13, 28, 0.5) 46%, rgba(3, 13, 28, 0.78)),
+    radial-gradient(circle at 50% 11%, rgba(14, 59, 92, 0.06), rgba(3, 11, 26, 0.3) 66%);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.page-frame {
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  margin: 0 auto;
+  max-width: 1180px;
+  min-height: 100vh;
+  padding: 0 8.5vw;
+  position: relative;
+}
+
+.page-frame::before,
+.page-frame::after {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  content: "";
+  height: 1px;
+  left: 3vw;
+  position: absolute;
+  right: 3vw;
+}
+
+.page-frame::before {
+  top: 11px;
+}
+
+.page-frame::after {
+  bottom: 11px;
+}
+
+.masthead {
+  align-items: center;
+  border-bottom: 1px solid rgba(215, 181, 104, 0.38);
+  display: flex;
+  justify-content: space-between;
+  padding: 33px 0 27px;
+}
+
+.monogram {
+  align-items: center;
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  display: inline-flex;
+  font-size: 0.61rem;
+  font-weight: 700;
+  height: 33px;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  padding-left: 0.12em;
+  width: 33px;
+}
+
+.masthead nav {
+  display: flex;
+  gap: 1.7rem;
+}
+
+.masthead nav a,
+.scroll-cue {
+  color: var(--paper-dim);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.masthead nav a:hover,
+.scroll-cue:hover {
+  color: var(--gold-bright);
+}
+
+.hero {
+  margin: 0 auto;
+  max-width: 790px;
+  padding: clamp(6.5rem, 14vw, 10.5rem) 0 clamp(6.5rem, 13vw, 9.5rem);
+  text-align: center;
+}
+
+.ornament-line {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  background: var(--gold);
+  content: "";
+  height: 1px;
+  opacity: 0.75;
+  width: 55px;
+}
+
+.ornament-line span {
+  border: 1px solid var(--gold);
+  height: 8px;
+  margin: 0 9px;
+  opacity: 0.9;
+  transform: rotate(45deg);
+  width: 8px;
+}
+
+.eyebrow {
+  color: var(--gold-bright);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.27em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  color: #f4ead3;
+  font-size: clamp(3.9rem, 9.5vw, 7.6rem);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 0.74;
+  margin: 1.25rem 0 1.8rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+h1 span {
+  color: var(--gold-bright);
+  display: block;
+  font-size: 0.61em;
+  font-style: italic;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin-left: 0.8em;
+  margin-top: 0.3em;
+}
+
+.hosts {
+  color: var(--paper-dim);
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.9rem;
+}
+
+.hero-rule {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1.85rem;
+  width: min(285px, 70%);
+}
+
+.hero-rule::before,
+.hero-rule::after {
+  background: var(--line);
+  content: "";
+  height: 1px;
+  width: 100%;
+}
+
+.hero-rule i {
+  background: var(--gold);
+  height: 5px;
+  margin: 0 0.55rem;
+  transform: rotate(45deg);
+  width: 5px;
+}
+
+.invitation {
+  color: #ded2b7;
+  font-size: clamp(1.05rem, 1.65vw, 1.23rem);
+  font-style: italic;
+  line-height: 1.82;
+  margin: 0 auto;
+  max-width: 690px;
+}
+
+.scroll-cue {
+  border-bottom: 1px solid var(--line);
+  display: inline-block;
+  margin-top: 2.6rem;
+  padding-bottom: 0.5rem;
+}
+
+.scroll-cue span {
+  color: var(--gold-bright);
+  font-size: 1.15rem;
+  margin-left: 0.3rem;
+}
+
+.sessions-section,
+.fellowships-section {
+  border-top: 1px solid var(--line);
+  padding: clamp(4.7rem, 9vw, 7rem) 0;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+h2 {
+  color: #f1e6cd;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0.7rem 0 0;
+}
+
+.session-columns {
+  display: grid;
+  gap: clamp(2.2rem, 5vw, 5rem);
+  grid-template-columns: 1fr 1fr;
+  margin-top: 3.7rem;
+}
+
+.column-label {
+  border-bottom: 1px solid var(--line);
+  color: var(--gold-bright);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.23em;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.session-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.session-card {
+  background: linear-gradient(130deg, rgba(10, 35, 56, 0.62), rgba(8, 27, 48, 0.36));
+  border: 1px solid rgba(214, 178, 100, 0.55);
+  min-height: 184px;
+  padding: 1.55rem 1.45rem;
+}
+
+.session-date {
+  color: var(--gold-bright);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.session-card h3 {
+  color: #f0e7d2;
+  font-size: clamp(1.35rem, 2.35vw, 1.82rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0.8rem 0 1.1rem;
+}
+
+.session-card p {
+  color: var(--paper-dim);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.session-card p span {
+  color: #efe2c4;
+}
+
+.empty-state {
+  border-bottom: 1px solid rgba(214, 178, 100, 0.31);
+  color: var(--paper-dim);
+  font-size: 1.02rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  padding: 1.25rem 0;
+}
+
+.fellowships-section {
+  padding-bottom: clamp(5.5rem, 11vw, 8rem);
+}
+
+.section-intro {
+  color: var(--paper-dim);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.65;
+  margin: 1.55rem auto 3.2rem;
+  max-width: 590px;
+  text-align: center;
+}
+
+.society-grid {
+  border-top: 1px solid var(--line);
+}
+
+.society-link {
+  align-items: center;
+  border-bottom: 1px solid rgba(214, 178, 100, 0.39);
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 38px 1fr 20px;
+  padding: 1.15rem 0;
+  transition: background-color 180ms ease, padding 180ms ease;
+}
+
+.society-link:hover {
+  background: rgba(212, 174, 93, 0.07);
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+}
+
+.society-number {
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.society-link strong {
+  color: #f0e5cc;
+  display: block;
+  font-size: 1.16rem;
+  font-weight: 400;
+}
+
+.society-link small {
+  color: var(--paper-dim);
+  display: block;
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.45;
+  margin-top: 0.24rem;
+}
+
+.society-link b {
+  color: var(--gold-bright);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+footer {
+  align-items: center;
+  border-top: 1px solid rgba(215, 181, 104, 0.38);
+  color: var(--paper-dim);
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.57rem;
+  justify-content: space-between;
+  letter-spacing: 0.14em;
+  padding: 1.75rem 0 2.5rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .site-shell {
+    background-size: auto 100%;
+  }
+
+  .page-frame {
+    border: 0;
+    padding: 0 1.35rem;
+  }
+
+  .page-frame::before,
+  .page-frame::after {
+    left: 1.35rem;
+    right: 1.35rem;
+  }
+
+  .masthead {
+    padding: 30px 0 23px;
+  }
+
+  .masthead nav {
+    gap: 1rem;
+  }
+
+  .masthead nav a {
+    font-size: 0.56rem;
+  }
+
+  .hero {
+    padding: 6.2rem 0 6.8rem;
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 16vw, 4.8rem);
+  }
+
+  .invitation {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .session-columns {
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+  }
+
+  .session-card {
+    min-height: 0;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+    line-height: 1.55;
+  }
+}
