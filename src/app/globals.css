@@ -231,6 +231,32 @@ h1 span {
   max-width: 690px;
 }
 
+.society-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  margin: 1.75rem auto 0;
+  max-width: 660px;
+}
+
+.society-pills a {
+  border: 1px solid rgba(210, 174, 98, 0.23);
+  border-radius: 999px;
+  color: rgba(222, 209, 181, 0.58);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  padding: 0.48rem 0.68rem;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.society-pills a:hover {
+  border-color: rgba(232, 199, 126, 0.6);
+  color: var(--gold-bright);
+}
+
 .scroll-cue {
   border-bottom: 1px solid var(--line);
   display: inline-block;
@@ -244,8 +270,7 @@ h1 span {
   margin-left: 0.3rem;
 }
 
-.sessions-section,
-.fellowships-section {
+.sessions-section {
   border-top: 1px solid var(--line);
   padding: clamp(4.7rem, 9vw, 7rem) 0;
 }
@@ -329,70 +354,6 @@ h2 {
   line-height: 1.6;
   margin: 0;
   padding: 1.25rem 0;
-}
-
-.fellowships-section {
-  padding-bottom: clamp(5.5rem, 11vw, 8rem);
-}
-
-.section-intro {
-  color: var(--paper-dim);
-  font-size: 1.05rem;
-  font-style: italic;
-  line-height: 1.65;
-  margin: 1.55rem auto 3.2rem;
-  max-width: 590px;
-  text-align: center;
-}
-
-.society-grid {
-  border-top: 1px solid var(--line);
-}
-
-.society-link {
-  align-items: center;
-  border-bottom: 1px solid rgba(214, 178, 100, 0.39);
-  display: grid;
-  gap: 1.2rem;
-  grid-template-columns: 38px 1fr 20px;
-  padding: 1.15rem 0;
-  transition: background-color 180ms ease, padding 180ms ease;
-}
-
-.society-link:hover {
-  background: rgba(212, 174, 93, 0.07);
-  padding-left: 0.55rem;
-  padding-right: 0.55rem;
-}
-
-.society-number {
-  color: var(--gold);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-}
-
-.society-link strong {
-  color: #f0e5cc;
-  display: block;
-  font-size: 1.16rem;
-  font-weight: 400;
-}
-
-.society-link small {
-  color: var(--paper-dim);
-  display: block;
-  font-size: 0.88rem;
-  font-style: italic;
-  line-height: 1.45;
-  margin-top: 0.24rem;
-}
-
-.society-link b {
-  color: var(--gold-bright);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 400;
 }
 
 footer {
