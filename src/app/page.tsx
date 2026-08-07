@@ -67,9 +67,6 @@ export default function Home() {
           <a className="monogram" href="#top" aria-label="Moscow Evening Thought home">
             MET
           </a>
-          <nav aria-label="Main navigation">
-            <a href="#sessions">Sessions</a>
-          </nav>
         </header>
 
         <section className="hero" id="top" aria-labelledby="site-title">
