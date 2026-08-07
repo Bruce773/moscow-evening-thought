@@ -63,12 +63,6 @@ export default function Home() {
     <main className="site-shell">
       <div className="ambient-overlay" />
       <div className="page-frame">
-        <header className="masthead">
-          <a className="monogram" href="#top" aria-label="Moscow Evening Thought home">
-            MET
-          </a>
-        </header>
-
         <section className="hero" id="top" aria-labelledby="site-title">
           <div className="ornament-line" aria-hidden="true">
             <span />
@@ -101,9 +95,6 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a className="scroll-cue" href="#sessions">
-            View the next gathering <span aria-hidden="true">↓</span>
-          </a>
         </section>
 
         <section className="sessions-section" id="sessions" aria-labelledby="sessions-title">
