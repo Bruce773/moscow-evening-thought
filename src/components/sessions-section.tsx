@@ -74,7 +74,7 @@ export function SessionsSection({
             </div>
           ) : (
             <p className='m-0 border-b border-[rgba(214,178,100,0.31)] py-5 text-[1.02rem] italic leading-[1.6] text-[#c7b997]'>
-              The first entries in our common notebook are yet to be written.
+              {"There haven't been any discussion evenings yet"}
             </p>
           )}
         </div>
