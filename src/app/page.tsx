@@ -1,3 +1,6 @@
+import { HeroSection } from '@/components/hero-section';
+import { SessionsSection } from '@/components/sessions-section';
+
 type Session = {
   date: string;
   dateTime: string;
@@ -12,10 +15,10 @@ type Society = {
 
 const upcomingSessions: readonly Session[] = [
   {
-    date: "August 29, 2026",
-    dateTime: "2026-08-29",
+    date: 'August 29, 2026',
+    dateTime: '2026-08-29',
     title: "Augustine's Confessions (Books XI-XIII)",
-    leader: "Sam Garner",
+    leader: 'Sam Garner',
   },
 ];
 
@@ -23,115 +26,46 @@ const pastSessions: readonly Session[] = [];
 
 const societies: readonly Society[] = [
   {
-    name: "Florentine Platonic Academy",
-    href: "https://en.wikipedia.org/wiki/Platonic_Academy_(Florence)",
+    name: 'Florentine Platonic Academy',
+    href: 'https://en.wikipedia.org/wiki/Platonic_Academy_(Florence)',
   },
   {
-    name: "Society of Dilettanti",
-    href: "https://www.dilettanti.org/",
+    name: 'Society of Dilettanti',
+    href: 'https://www.dilettanti.org/',
   },
   {
-    name: "Lunar Society of Birmingham",
-    href: "https://www.birmingham.gov.uk/info/50242/local_history/1714/lunar_society",
+    name: 'Lunar Society of Birmingham',
+    href: 'https://www.birmingham.gov.uk/info/50242/local_history/1714/lunar_society',
   },
   {
-    name: "The Inklings",
-    href: "https://en.wikipedia.org/wiki/Inklings",
+    name: 'The Inklings',
+    href: 'https://en.wikipedia.org/wiki/Inklings',
   },
   {
-    name: "Society of Christian Philosophers",
-    href: "https://www.societyofchristianphilosophers.com/",
+    name: 'Society of Christian Philosophers',
+    href: 'https://www.societyofchristianphilosophers.com/',
   },
 ];
 
-function SessionCard({ session }: { session: Session }) {
-  return (
-    <article className="session-card">
-      <time dateTime={session.dateTime} className="session-date">
-        {session.date}
-      </time>
-      <h3>{session.title}</h3>
-      <p>
-        Discussion leader <span>{session.leader}</span>
-      </p>
-    </article>
-  );
-}
-
 export default function Home() {
   return (
-    <main className="site-shell">
-      <div className="ambient-overlay" />
-      <div className="page-frame">
-        <section className="hero" id="top" aria-labelledby="site-title">
-          <div className="ornament-line" aria-hidden="true">
-            <span />
-          </div>
-          <p className="eyebrow">A reading fellowship</p>
-          <h1 id="site-title">
-            Moscow
-            <span>Evening Thought</span>
-          </h1>
-          <p className="hosts">Hosted by Bruce Johnson &amp; Carter Brown</p>
-          <div className="hero-rule" aria-hidden="true">
-            <i />
-          </div>
-          <p className="invitation">
-            &quot;...the only palliative is to keep the clean sea breeze of the
-            centuries blowing through our minds, and this can be done only by
-            reading old books.&quot; (C.S. Lewis) Our souls need constant feeding.
-            If you&apos;re seeing this page, you probably already know this. Join us
-            as we walk in the footsteps of those who came before us.
-          </p>
-          <div className="society-pills" aria-label="Related fellowships">
-            {societies.map((society) => (
-              <a
-                href={society.href}
-                key={society.name}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {society.name}
-              </a>
-            ))}
-          </div>
-        </section>
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#071a31] bg-[url('/bg.png')] bg-[position:center_top] bg-repeat-y bg-[length:100%_auto] text-[#f1e7cd]">
+      <div className='pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_50%_11%,rgba(14,59,92,0.06),rgba(3,11,26,0.3)_66%)]' />
+      <div className='pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,14,30,0.28),rgba(3,13,28,0.5)_46%,rgba(3,13,28,0.78))]' />
+      <div className='relative mx-auto min-h-screen max-w-[1180px] border-x border-[rgba(220,183,105,0.52)] px-5 sm:px-8 lg:px-[8.5vw]'>
+        <div className='pointer-events-none absolute left-[3vw] right-[3vw] top-[11px] hidden h-px bg-gradient-to-r from-transparent via-[#d0ac63] to-transparent sm:block' />
+        <div className='pointer-events-none absolute left-[3vw] right-[3vw] bottom-[11px] hidden h-px bg-gradient-to-r from-transparent via-[#d0ac63] to-transparent sm:block' />
 
-        <section className="sessions-section" id="sessions" aria-labelledby="sessions-title">
-          <div className="section-heading">
-            <p className="eyebrow">The calendar</p>
-            <h2 id="sessions-title">Sessions</h2>
-          </div>
+        <HeroSection societies={societies} />
 
-          <div className="session-columns">
-            <div>
-              <h3 className="column-label">Upcoming</h3>
-              <div className="session-list">
-                {upcomingSessions.map((session) => (
-                  <SessionCard key={session.dateTime} session={session} />
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="column-label">Past gatherings</h3>
-              {pastSessions.length > 0 ? (
-                <div className="session-list">
-                  {pastSessions.map((session) => (
-                    <SessionCard key={session.dateTime} session={session} />
-                  ))}
-                </div>
-              ) : (
-                <p className="empty-state">
-                  The first entries in our common notebook are yet to be written.
-                </p>
-              )}
-            </div>
-          </div>
-        </section>
+        <SessionsSection
+          upcomingSessions={upcomingSessions}
+          pastSessions={pastSessions}
+        />
 
-        <footer>
+        <footer className='flex flex-col gap-3 border-t border-[rgba(215,181,104,0.38)] py-7 font-sans text-[0.57rem] uppercase tracking-[0.14em] text-[#c7b997] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:py-7 mb-5'>
           <span>Moscow Evening Thought</span>
-          <span>Read slowly. Think deeply. Gather often.</span>
+          <span>The Great Books, centered around The Word made flesh</span>
         </footer>
       </div>
     </main>
