@@ -46,9 +46,9 @@ export function HeroSection({ societies }: HeroSectionProps) {
         (C.S. Lewis)
       </p>
       <p className='mx-auto max-w-[590px] text-[1rem] italic leading-[1.75] text-[#ded2b7] sm:text-[clamp(1.05rem,1.65vw,1.23rem)] sm:leading-[1.82]'>
-        Our souls need constant feeding. If you&apos;re seeing this page, you
-        probably already know this. Join us as we walk in the footsteps of those
-        who came before us.
+        Our souls are affected by what we take into them. They ought to be
+        oriented towards the Good, the True, and the Beautiful. Join us as we
+        walk in the footsteps of those who came before us.
       </p>
       <div
         className='mx-auto mt-7 flex max-w-[660px] flex-wrap justify-center gap-2'

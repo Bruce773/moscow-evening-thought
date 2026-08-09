@@ -31,11 +31,11 @@ const societies: readonly Society[] = [
   },
   {
     name: 'Society of Dilettanti',
-    href: 'https://www.dilettanti.org/',
+    href: 'https://en.wikipedia.org/wiki/Society_of_Dilettanti',
   },
   {
     name: 'Lunar Society of Birmingham',
-    href: 'https://www.birmingham.gov.uk/info/50242/local_history/1714/lunar_society',
+    href: 'https://en.wikipedia.org/wiki/Lunar_Society_of_Birmingham',
   },
   {
     name: 'The Inklings',
