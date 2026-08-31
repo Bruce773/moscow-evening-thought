@@ -36,7 +36,9 @@ function SessionCard({ session }: { session: Session }) {
       {session.textUrl && (
         <a
           href={session.textUrl}
-          className='mt-5 flex items-center justify-between border-t border-[rgba(214,178,100,0.31)] pt-4 font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e] transition hover:text-[#f0e7d2]'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='mt-5 flex items-center gap-2 border-t border-[rgba(214,178,100,0.31)] pt-4 font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e] transition hover:text-[#f0e7d2]'
         >
           <span>Read text</span>
           <svg
@@ -46,8 +48,12 @@ function SessionCard({ session }: { session: Session }) {
             viewBox='0 0 24 24'
             stroke='currentColor'
             strokeWidth='1.8'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           >
-            <path d='M5 12h14m-6-6 6 6-6 6' />
+            <path d='M14 5h5v5' />
+            <path d='M10 14 19 5' />
+            <path d='M19 13v6H5V5h6' />
           </svg>
         </a>
       )}
@@ -100,7 +106,10 @@ export function SessionsSection({
           </h3>
           <div className='grid gap-4'>
             {upcomingSessions.map(session => (
-              <SessionCard key={session.dateTime ?? session.title} session={session} />
+              <SessionCard
+                key={session.dateTime ?? session.title}
+                session={session}
+              />
             ))}
           </div>
         </div>
@@ -111,7 +120,10 @@ export function SessionsSection({
           {pastSessions.length > 0 ? (
             <div className='grid gap-4'>
               {pastSessions.map(session => (
-                <SessionCard key={session.dateTime ?? session.title} session={session} />
+                <SessionCard
+                  key={session.dateTime ?? session.title}
+                  session={session}
+                />
               ))}
             </div>
           ) : (
