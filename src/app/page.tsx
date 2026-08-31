@@ -1,11 +1,13 @@
 import { HeroSection } from '@/components/hero-section';
 import { SessionsSection } from '@/components/sessions-section';
+import { connection } from 'next/server';
 
 type Session = {
   date: string;
   dateTime: string;
   title: string;
   leader: string;
+  recordingUrl?: string;
 };
 
 type Society = {
@@ -13,16 +15,15 @@ type Society = {
   href: string;
 };
 
-const upcomingSessions: readonly Session[] = [
+const sessions: readonly Session[] = [
   {
     date: 'August 29, 2026',
     dateTime: '2026-08-29',
     title: "Augustine's Confessions (Books XI-XIII)",
     leader: 'Sam Garner',
+    recordingUrl: 'https://www.youtube.com/embed/rGLoiybEiVQ',
   },
 ];
-
-const pastSessions: readonly Session[] = [];
 
 const societies: readonly Society[] = [
   {
@@ -47,7 +48,13 @@ const societies: readonly Society[] = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  await connection();
+
+  const today = new Date().toISOString().slice(0, 10);
+  const upcomingSessions = sessions.filter(session => session.dateTime >= today);
+  const pastSessions = sessions.filter(session => session.dateTime < today);
+
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#071a31] bg-[url('/bg.png')] bg-[position:center_top] bg-repeat-y bg-[length:100%_auto] text-[#f1e7cd]">
       <div className='pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_50%_11%,rgba(14,59,92,0.06),rgba(3,11,26,0.3)_66%)]' />

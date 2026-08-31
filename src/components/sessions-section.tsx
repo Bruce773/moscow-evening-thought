@@ -3,6 +3,7 @@ type Session = {
   dateTime: string;
   title: string;
   leader: string;
+  recordingUrl?: string;
 };
 
 type SessionsSectionProps = {
@@ -25,6 +26,22 @@ function SessionCard({ session }: { session: Session }) {
       <p className='mt-4 text-[0.95rem] italic text-[#c7b997]'>
         Discussion leader: <span>{session.leader}</span>
       </p>
+      {session.recordingUrl && (
+        <details className='mt-5 border-t border-[rgba(214,178,100,0.31)] pt-4'>
+          <summary className='cursor-pointer font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e]'>
+            Watch recording
+          </summary>
+          <div className='mt-4 aspect-video overflow-hidden border border-[rgba(214,178,100,0.4)]'>
+            <iframe
+              className='h-full w-full'
+              src={session.recordingUrl}
+              title={`Recording: ${session.title}`}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowFullScreen
+            />
+          </div>
+        </details>
+      )}
     </article>
   );
 }
