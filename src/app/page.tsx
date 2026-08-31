@@ -3,10 +3,11 @@ import { SessionsSection } from '@/components/sessions-section';
 import { connection } from 'next/server';
 
 type Session = {
-  date: string;
-  dateTime: string;
+  date?: string;
+  dateTime?: string;
   title: string;
-  leader: string;
+  leader?: string;
+  textUrl?: string;
   recordingUrl?: string;
 };
 
@@ -22,6 +23,11 @@ const sessions: readonly Session[] = [
     title: "Augustine's Confessions (Books XI-XIII)",
     leader: 'Sam Garner',
     recordingUrl: 'https://www.youtube.com/embed/rGLoiybEiVQ',
+  },
+  {
+    title: 'Quomodo Substantiae',
+    textUrl:
+      'https://www.loebclassics.com/display/boethius-theological_tractates_quomodo_substantiae/1973/pb_LCL074.47.xml',
   },
 ];
 
@@ -52,8 +58,12 @@ export default async function Home() {
   await connection();
 
   const today = new Date().toISOString().slice(0, 10);
-  const upcomingSessions = sessions.filter(session => session.dateTime >= today);
-  const pastSessions = sessions.filter(session => session.dateTime < today);
+  const upcomingSessions = sessions.filter(
+    session => !session.dateTime || session.dateTime >= today,
+  );
+  const pastSessions = sessions.filter(
+    session => session.dateTime && session.dateTime < today,
+  );
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#071a31] bg-[url('/bg.png')] bg-[position:center_top] bg-repeat-y bg-[length:100%_auto] text-[#f1e7cd]">

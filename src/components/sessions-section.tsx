@@ -1,8 +1,9 @@
 type Session = {
-  date: string;
-  dateTime: string;
+  date?: string;
+  dateTime?: string;
   title: string;
-  leader: string;
+  leader?: string;
+  textUrl?: string;
   recordingUrl?: string;
 };
 
@@ -14,18 +15,42 @@ type SessionsSectionProps = {
 function SessionCard({ session }: { session: Session }) {
   return (
     <article className='min-h-[184px] border border-[rgba(214,178,100,0.55)] bg-[linear-gradient(130deg,rgba(10,35,56,0.62),rgba(8,27,48,0.36))] p-6'>
-      <time
-        dateTime={session.dateTime}
-        className='font-sans text-[0.65rem] uppercase tracking-[0.15em] text-[#e8c77e]'
-      >
-        {session.date}
-      </time>
+      {session.date ? (
+        <time
+          dateTime={session.dateTime}
+          className='font-sans text-[0.65rem] uppercase tracking-[0.15em] text-[#e8c77e]'
+        >
+          {session.date}
+        </time>
+      ) : (
+        <p className='m-0 font-sans text-[0.65rem] uppercase tracking-[0.15em] text-[#e8c77e]'>
+          Date to be announced
+        </p>
+      )}
       <h3 className='mt-3 text-[clamp(1.35rem,2.35vw,1.82rem)] font-normal leading-[1.15] text-[#f0e7d2]'>
         {session.title}
       </h3>
       <p className='mt-4 text-[0.95rem] italic text-[#c7b997]'>
-        Discussion leader: <span>{session.leader}</span>
+        Discussion leader: <span>{session.leader ?? 'To be announced'}</span>
       </p>
+      {session.textUrl && (
+        <a
+          href={session.textUrl}
+          className='mt-5 flex items-center justify-between border-t border-[rgba(214,178,100,0.31)] pt-4 font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e] transition hover:text-[#f0e7d2]'
+        >
+          <span>Read text</span>
+          <svg
+            aria-hidden='true'
+            className='h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            strokeWidth='1.8'
+          >
+            <path d='M5 12h14m-6-6 6 6-6 6' />
+          </svg>
+        </a>
+      )}
       {session.recordingUrl && (
         <details className='mt-5 border-t border-[rgba(214,178,100,0.31)] pt-4'>
           <summary className='cursor-pointer font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e]'>
@@ -75,7 +100,7 @@ export function SessionsSection({
           </h3>
           <div className='grid gap-4'>
             {upcomingSessions.map(session => (
-              <SessionCard key={session.dateTime} session={session} />
+              <SessionCard key={session.dateTime ?? session.title} session={session} />
             ))}
           </div>
         </div>
@@ -86,7 +111,7 @@ export function SessionsSection({
           {pastSessions.length > 0 ? (
             <div className='grid gap-4'>
               {pastSessions.map(session => (
-                <SessionCard key={session.dateTime} session={session} />
+                <SessionCard key={session.dateTime ?? session.title} session={session} />
               ))}
             </div>
           ) : (
