@@ -3,6 +3,7 @@ type Session = {
   dateTime?: string;
   title: string;
   leader?: string;
+  leaderUrl?: string;
   textUrl?: string;
   recordingUrl?: string;
 };
@@ -31,7 +32,33 @@ function SessionCard({ session }: { session: Session }) {
         {session.title}
       </h3>
       <p className='mt-4 text-[0.95rem] italic text-[#c7b997]'>
-        Discussion leader: <span>{session.leader ?? 'To be announced'}</span>
+        Discussion leader:{' '}
+        {session.leader && session.leaderUrl ? (
+          <a
+            href={session.leaderUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center gap-1 text-[#e8c77e] transition hover:text-[#f0e7d2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c77e]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a31]'
+          >
+            <span>{session.leader}</span>
+            <svg
+              aria-hidden='true'
+              className='h-4 w-4'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              strokeWidth='1.8'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <path d='M14 5h5v5' />
+              <path d='M10 14 19 5' />
+              <path d='M19 13v6H5V5h6' />
+            </svg>
+          </a>
+        ) : (
+          <span>{session.leader ?? 'To be announced'}</span>
+        )}
       </p>
       {session.textUrl && (
         <a
