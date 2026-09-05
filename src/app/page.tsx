@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/hero-section';
+import { MobileNavigation } from '@/components/mobile-navigation';
 import { SessionsSection } from '@/components/sessions-section';
 import { connection } from 'next/server';
 
@@ -78,6 +79,7 @@ export default async function Home() {
         <div className='pointer-events-none absolute left-[3vw] right-[3vw] top-[11px] hidden h-px bg-gradient-to-r from-transparent via-[#d0ac63] to-transparent sm:block' />
         <div className='pointer-events-none absolute left-[3vw] right-[3vw] bottom-[11px] hidden h-px bg-gradient-to-r from-transparent via-[#d0ac63] to-transparent sm:block' />
 
+        <MobileNavigation />
         <HeroSection societies={societies} />
 
         <SessionsSection

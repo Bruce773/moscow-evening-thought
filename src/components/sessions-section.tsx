@@ -127,7 +127,7 @@ export function SessionsSection({
       </div>
 
       <div className='mt-12 grid gap-[clamp(2.2rem,5vw,5rem)] lg:grid-cols-2 sm:mt-[3.7rem]'>
-        <div>
+        <div id='upcoming-discussions'>
           <h3 className='mb-4 border-b border-[rgba(220,183,105,0.52)] pb-[0.8rem] font-sans text-[0.65rem] font-normal uppercase tracking-[0.23em] text-[#e8c77e]'>
             Upcoming
           </h3>
@@ -159,6 +159,61 @@ export function SessionsSection({
             </p>
           )}
         </div>
+      </div>
+
+      <div
+        className='mx-auto mt-16 flex w-[min(285px,70%)] items-center justify-center sm:mt-20'
+        aria-hidden='true'
+      >
+        <span className='h-px w-full bg-[rgba(220,183,105,0.52)]' />
+        <span className='mx-[0.55rem] h-[5px] w-[5px] rotate-45 bg-[#d0ac63]' />
+        <span className='h-px w-full bg-[rgba(220,183,105,0.52)]' />
+      </div>
+      <div
+        className='mx-auto mt-12 max-w-[650px] border border-[rgba(214,178,100,0.55)] bg-[linear-gradient(130deg,rgba(10,35,56,0.62),rgba(8,27,48,0.36))] p-6 sm:p-9'
+        id='email-list'
+      >
+        <div className='text-center'>
+          <p className='m-0 font-sans text-[0.62rem] uppercase tracking-[0.23em] text-[#e8c77e]'>
+            Stay informed
+          </p>
+          <h3 className='mt-3 text-xl font-normal leading-none text-[#f1e6cd] sm:text-[1.75rem]'>
+            Get notified when the next discussion group happens.
+          </h3>
+        </div>
+        <form
+          className='mx-auto mt-7 flex max-w-[500px] flex-col gap-3 sm:flex-row'
+          name='discussion-notifications'
+          method='POST'
+          action='/'
+          data-netlify='true'
+          netlify-honeypot='bot-field'
+        >
+          <input type='hidden' name='form-name' value='discussion-notifications' />
+          <p className='hidden'>
+            <label>
+              Do not fill this out if you are human: <input name='bot-field' />
+            </label>
+          </p>
+          <label className='sr-only' htmlFor='notification-email'>
+            Email address
+          </label>
+          <input
+            className='min-w-0 flex-1 border border-[rgba(214,178,100,0.55)] bg-[#071a31]/70 px-4 py-3 font-sans text-sm text-[#f1e7cd] placeholder:text-[#c7b997]/70 focus:border-[#e8c77e] focus:outline-none focus:ring-1 focus:ring-[#e8c77e]'
+            id='notification-email'
+            name='email'
+            type='email'
+            autoComplete='email'
+            placeholder='Email address'
+            required
+          />
+          <button
+            className='border border-[#d0ac63] bg-[#d0ac63] px-5 py-3 font-sans text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[#071a31] transition-colors hover:bg-[#e8c77e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c77e]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a31]'
+            type='submit'
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </section>
   );
