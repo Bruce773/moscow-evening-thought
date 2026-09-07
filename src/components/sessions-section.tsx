@@ -5,6 +5,7 @@ type Session = {
   leader?: string;
   leaderUrl?: string;
   textUrl?: string;
+  supplementalReadingUrl?: string;
   recordingUrl?: string;
 };
 
@@ -68,6 +69,30 @@ function SessionCard({ session }: { session: Session }) {
           className='mt-5 flex items-center gap-2 border-t border-[rgba(214,178,100,0.31)] pt-4 font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e] transition hover:text-[#f0e7d2]'
         >
           <span>Read text</span>
+          <svg
+            aria-hidden='true'
+            className='h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            strokeWidth='1.8'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          >
+            <path d='M14 5h5v5' />
+            <path d='M10 14 19 5' />
+            <path d='M19 13v6H5V5h6' />
+          </svg>
+        </a>
+      )}
+      {session.supplementalReadingUrl && (
+        <a
+          href={session.supplementalReadingUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='mt-5 flex items-center gap-2 border-t border-[rgba(214,178,100,0.31)] pt-4 font-sans text-[0.62rem] uppercase tracking-[0.15em] text-[#e8c77e] transition hover:text-[#f0e7d2]'
+        >
+          <span>Supplemental Reading From Dr. Kemp</span>
           <svg
             aria-hidden='true'
             className='h-4 w-4'
