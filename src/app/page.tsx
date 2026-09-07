@@ -10,6 +10,7 @@ type Session = {
   leader?: string;
   leaderUrl?: string;
   textUrl?: string;
+  supplementalReadingUrl?: string;
   recordingUrl?: string;
 };
 
@@ -34,6 +35,8 @@ const sessions: readonly Session[] = [
     leaderUrl: 'https://nsa.edu/contributors/dan-kemp',
     textUrl:
       'https://www.loebclassics.com/display/boethius-theological_tractates_quomodo_substantiae/1973/pb_LCL074.47.xml',
+    supplementalReadingUrl:
+      'https://drive.google.com/file/d/1qq8WRg5BsYBK7xp4jyNT99J5YB_Qt9Og/view?usp=sharing',
   },
 ];
 
