@@ -1,3 +1,5 @@
+import { EmailSignupForm } from '@/components/email-signup-form';
+
 type Session = {
   date?: string;
   dateTime?: string;
@@ -206,39 +208,7 @@ export function SessionsSection({
             Get notified when the next discussion group happens.
           </h3>
         </div>
-        <form
-          className='mx-auto mt-7 flex max-w-[500px] flex-col gap-3 sm:flex-row'
-          name='discussion-notifications'
-          method='POST'
-          action='/'
-          data-netlify='true'
-          netlify-honeypot='bot-field'
-        >
-          <input type='hidden' name='form-name' value='discussion-notifications' />
-          <p className='hidden'>
-            <label>
-              Do not fill this out if you are human: <input name='bot-field' />
-            </label>
-          </p>
-          <label className='sr-only' htmlFor='notification-email'>
-            Email address
-          </label>
-          <input
-            className='min-w-0 flex-1 border border-[rgba(214,178,100,0.55)] bg-[#071a31]/70 px-4 py-3 font-sans text-sm text-[#f1e7cd] placeholder:text-[#c7b997]/70 focus:border-[#e8c77e] focus:outline-none focus:ring-1 focus:ring-[#e8c77e]'
-            id='notification-email'
-            name='email'
-            type='email'
-            autoComplete='email'
-            placeholder='Email address'
-            required
-          />
-          <button
-            className='border border-[#d0ac63] bg-[#d0ac63] px-5 py-3 font-sans text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[#071a31] transition-colors hover:bg-[#e8c77e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c77e]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a31]'
-            type='submit'
-          >
-            Submit
-          </button>
-        </form>
+        <EmailSignupForm />
       </div>
     </section>
   );

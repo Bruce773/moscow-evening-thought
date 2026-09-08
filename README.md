@@ -29,8 +29,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The email signup form is configured for [Netlify Forms](https://docs.netlify.com/manage/forms/setup/). The static declaration in `public/netlify-forms.html` lets Netlify discover the form during deployment even though the visible form is rendered dynamically by Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy with the standard Netlify Next.js runtime. Submissions will appear in the site's **Forms** dashboard as `discussion-notifications`.
