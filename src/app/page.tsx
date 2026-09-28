@@ -1,44 +1,13 @@
 import { HeroSection } from '@/components/hero-section';
 import { MobileNavigation } from '@/components/mobile-navigation';
 import { SessionsSection } from '@/components/sessions-section';
+import { discussionEvents } from '@/lib/discussion-events';
 import { connection } from 'next/server';
-
-type Session = {
-  date?: string;
-  dateTime?: string;
-  title: string;
-  leader?: string;
-  leaderUrl?: string;
-  textUrl?: string;
-  supplementalReadingUrl?: string;
-  recordingUrl?: string;
-};
 
 type Society = {
   name: string;
   href: string;
 };
-
-const sessions: readonly Session[] = [
-  {
-    date: 'August 29, 2026',
-    dateTime: '2026-08-29',
-    title: "Augustine's Confessions (Books XI-XIII)",
-    leader: 'Sam Garner',
-    recordingUrl: 'https://www.youtube.com/embed/rGLoiybEiVQ',
-  },
-  {
-    date: 'September 26, 2026',
-    dateTime: '2026-09-26',
-    title: 'Quomodo Substantiae',
-    leader: 'Dr. Dan Kemp',
-    leaderUrl: 'https://nsa.edu/contributors/dan-kemp',
-    textUrl:
-      'https://www.loebclassics.com/display/boethius-theological_tractates_quomodo_substantiae/1973/pb_LCL074.47.xml',
-    supplementalReadingUrl:
-      'https://drive.google.com/file/d/1qq8WRg5BsYBK7xp4jyNT99J5YB_Qt9Og/view?usp=sharing',
-  },
-];
 
 const societies: readonly Society[] = [
   {
@@ -67,10 +36,10 @@ export default async function Home() {
   await connection();
 
   const today = new Date().toISOString().slice(0, 10);
-  const upcomingSessions = sessions.filter(
+  const upcomingSessions = discussionEvents.filter(
     session => !session.dateTime || session.dateTime >= today,
   );
-  const pastSessions = sessions.filter(
+  const pastSessions = discussionEvents.filter(
     session => session.dateTime && session.dateTime < today,
   );
 
