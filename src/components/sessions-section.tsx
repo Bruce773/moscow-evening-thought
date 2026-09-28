@@ -244,7 +244,7 @@ function SessionCard({
     <button
       type='button'
       onClick={() => onSelect(session)}
-      className='group min-h-[184px] w-full border border-[rgba(214,178,100,0.55)] bg-[linear-gradient(130deg,rgba(10,35,56,0.62),rgba(8,27,48,0.36))] p-6 text-left transition hover:-translate-y-1 hover:border-[#e8c77e] hover:bg-[linear-gradient(130deg,rgba(15,48,76,0.8),rgba(8,27,48,0.6))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c77e]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a31]'
+      className='group min-h-[184px] w-full cursor-pointer border border-[rgba(214,178,100,0.55)] bg-[linear-gradient(130deg,rgba(10,35,56,0.62),rgba(8,27,48,0.36))] p-6 text-left transition hover:-translate-y-1 hover:border-[#e8c77e] hover:bg-[linear-gradient(130deg,rgba(15,48,76,0.8),rgba(8,27,48,0.6))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c77e]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a31]'
     >
       <time
         dateTime={session.dateTime}
