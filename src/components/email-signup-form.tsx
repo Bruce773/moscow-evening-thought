@@ -22,7 +22,7 @@ export function EmailSignupForm() {
     });
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/netlify-forms.html', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -57,7 +57,7 @@ export function EmailSignupForm() {
       className='mx-auto mt-7 flex max-w-[500px] flex-col gap-3 sm:flex-row'
       name='discussion-notifications'
       method='POST'
-      action='/'
+      action='/netlify-forms.html'
       data-netlify='true'
       netlify-honeypot='bot-field'
       aria-busy={status === 'submitting'}
