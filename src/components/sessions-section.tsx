@@ -1,6 +1,7 @@
 'use client';
 
 import type { DiscussionEvent, DiscussionLeader } from '@/lib/discussion-events';
+import { ContactUsForm } from '@/components/contact-us-form';
 import { EmailSignupForm } from '@/components/email-signup-form';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -334,6 +335,18 @@ export function SessionsSection({
           </h3>
         </div>
         <EmailSignupForm />
+      </div>
+
+      <div className='mx-auto mt-12 max-w-[650px] border border-[rgba(214,178,100,0.55)] bg-[linear-gradient(130deg,rgba(10,35,56,0.62),rgba(8,27,48,0.36))] p-6 sm:p-9' id='contact-us'>
+        <div className='text-center'>
+          <p className='m-0 font-sans text-[0.62rem] uppercase tracking-[0.23em] text-[#e8c77e]'>
+            Contact us
+          </p>
+          <h3 className='mt-3 text-xl font-normal leading-none text-[#f1e6cd] sm:text-[1.75rem]'>
+            Ask us a question or request a future discussion topic.
+          </h3>
+        </div>
+        <ContactUsForm />
       </div>
 
       {selectedSession && (
