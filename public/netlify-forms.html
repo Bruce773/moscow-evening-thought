@@ -16,5 +16,19 @@
       <input name="bot-field" />
       <input type="email" name="email" />
     </form>
+    <form
+      name="contact-us"
+      method="POST"
+      action="/"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact-us" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>

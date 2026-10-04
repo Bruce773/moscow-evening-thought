@@ -60,7 +60,10 @@ export default async function Home() {
         />
 
         <footer className='flex flex-col gap-3 border-t border-[rgba(215,181,104,0.38)] py-7 font-sans text-[0.57rem] uppercase tracking-[0.14em] text-[#c7b997] sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:py-7 mb-5'>
-          <span>Moscow Evening Thought</span>
+          <span className='flex flex-col gap-1'>
+            <span>Moscow Evening Thought</span>
+            <span>Discussions held in Moscow, ID</span>
+          </span>
           <span>The Great Books, centered around The Word made flesh</span>
         </footer>
       </div>
