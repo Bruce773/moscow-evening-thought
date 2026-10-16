@@ -12,19 +12,19 @@ type Society = {
 const societies: readonly Society[] = [
   {
     name: 'Florentine Platonic Academy',
-    href: 'https://en.wikipedia.org/wiki/Platonic_Academy_(Florence)',
+    href: 'https://www.britannica.com/topic/Platonic-Academy',
   },
   {
     name: 'Society of Dilettanti',
-    href: 'https://en.wikipedia.org/wiki/Society_of_Dilettanti',
+    href: 'https://www.britannica.com/topic/classical-scholarship/The-Renaissance-outside-Italy',
   },
   {
     name: 'Lunar Society of Birmingham',
-    href: 'https://en.wikipedia.org/wiki/Lunar_Society_of_Birmingham',
+    href: 'https://www.britannica.com/topic/Lunar-Society',
   },
   {
     name: 'The Inklings',
-    href: 'https://en.wikipedia.org/wiki/Inklings',
+    href: 'https://www.britannica.com/topic/Inklings',
   },
   {
     name: 'Society of Christian Philosophers',
